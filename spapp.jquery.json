@@ -1,14 +1,14 @@
 {
   "name": "spapp",
   "title": "jQuery Single Page Application micro framework",
-  "description": "Routing, views and controllers in Single Page Applications",
+  "description": "Routing, views and controllers in Single Page Applications and in 75 lines of code",
   "keywords": [
         "SPA",
         "routing",
         "view",
         "controller"
    ],
-   "version": "1.0.1",
+   "version": "1.0.2",
    "author": {
         "name": "Andrew Fedoniouk @ terrainformatica.com",
         "url": "http://terrainformatica.com"
