@@ -1,5 +1,5 @@
 {
-  "name": "SPAapp",
+  "name": "spapp",
   "title": "jQuery Single Page Application micro framework",
   "description": "Routing, views and controllers in Single Page Applications",
   "keywords": [
@@ -8,7 +8,7 @@
         "view",
         "controller"
    ],
-   "version": "1.0.0",
+   "version": "1.0.1",
    "author": {
         "name": "Andrew Fedoniouk @ terrainformatica.com",
         "url": "http://terrainformatica.com"
