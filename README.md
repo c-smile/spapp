@@ -77,11 +77,6 @@ Typical structure of a view looks like this:
       
     }
   }); 
-  
-  # Live Demo 
-  
-  Live demo can be found here http://terrainformatica.com/widgets.js/spapp/index.htm
-  
 </script>
 ```
 
