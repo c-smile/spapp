@@ -1,0 +1,39 @@
+<h2>Contact Details</h2>
+
+<table role="presentation">
+  <tr><td>First name</td> <td><input name="firstName"></td></tr>
+  <tr><td>Last name</td>  <td><input name="lastName"></td></tr>
+  <tr><td>Company</td>    <td><input name="company"></td></tr>
+  <tr><td>Email</td>      <td><input name="email"></td></tr>
+</table>
+
+<script>
+//|
+//| view handler
+//|
+//| Note the name below shall match id of the section
+//|
+  app.page("contact-details", function() 
+  {
+    // initialize view variables
+    
+    var $firstName = $(this).find('[name="firstName"]');
+    var $lastName = $(this).find('[name="lastName"]');
+    var $company = $(this).find('[name="company"]');
+    var $email = $(this).find('[name="email"]');
+    
+    var contact = null; // current contact
+        
+    // present the view - load data and show: 
+    return function(params) {
+      var contactId = parseInt(params); 
+      contact = contacts[contactId];
+      
+      $firstName.val(contact.firstName);
+      $lastName.val(contact.lastName);
+      $company.val(contact.company);
+      $email.val(contact.email);
+      
+    }
+  }); 
+</script>

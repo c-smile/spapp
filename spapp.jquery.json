@@ -1,0 +1,35 @@
+{
+  "name": "SPAapp",
+  "title": "jQuery Single Page Application micro framework",
+  "description": "Routing, views and controllers in Single Page Applications",
+  "keywords": [
+        "SPA",
+        "routing",
+        "view",
+        "controller"
+   ],
+   "version": "1.0.0",
+   "author": {
+        "name": "Andrew Fedoniouk @ terrainformatica.com",
+        "url": "http://terrainformatica.com"
+    },
+    "maintainers": [
+        {
+          "name": "Andrew Fedoniouk",
+          "email": "andrew.fedoniouk@gmail.com",
+          "url": "http://stackoverflow.com/users/421163/c-smile"
+        }
+    ],
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "https://github.com/c-smile/spapp/blob/master/LICENSE"
+        }
+    ],  
+    "bugs": "https://github.com/c-smile/spapp/issues",
+    "homepage": "https://github.com/c-smile/spapp",
+    "docs": "https://github.com/c-smile/spapp",
+    "download": "https://github.com/c-smile/spapp",
+    "dependencies": { "jquery": ">=1.8" },
+    "demo": "http://terrainformatica.com/widgets.js/spapp/index.htm"
+}

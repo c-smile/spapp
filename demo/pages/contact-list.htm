@@ -1,0 +1,30 @@
+<h2>Contact list</h2>
+
+<ol class="contacts" >
+  <li>
+      <a href="#contact-details:{{this.id}}">
+        {{this.firstName}}
+        {{this.lastName}} 
+      </a>
+      <span class="touchpoints">{{this.touchpoints}}</span>
+  </li>
+  <li>You have no contacts yet.</li>
+</ol>
+
+<script>
+//|
+//| view handler
+//|
+//| Note the name below shall match id of the section
+//|
+  app.page("contact-list", function() 
+  {
+    // initialize view variables
+    var list = $(this).find("ol.contacts").repeatable();
+        
+    // present the view - load data and show: 
+    return function(params) {
+      list.value = contacts; // populating the list
+    }
+  }); 
+</script>

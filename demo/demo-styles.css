@@ -1,0 +1,26 @@
+
+body { font: 10pt sans-serif; }
+
+/* visibility rules */
+
+/* all sections are off by default */
+body > section { display:none; }
+
+body.about           > section#about,
+body.contact-list    > section#contact-list,
+body.contact-details > section#contact-details { display:block; }
+
+/* nav styling */
+nav     { background:#555; padding:10px 10px 0 10px; }
+nav > a { display:inline-block; color: white; padding:4px 10px; }
+
+/* nav highlightion rules */
+body.about           > nav > a[href="#about"],
+body.contact-list    > nav > a[href="#contact-list"],
+body.contact-details > nav > a[href="#contact-details"] { background:white; color:black; }
+
+
+
+
+
+
