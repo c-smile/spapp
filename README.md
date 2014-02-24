@@ -132,7 +132,7 @@ body.view-b > nav > a[href="#view-b"],
 body.view-c > nav > a[href="#view-c"] { background:white; color:black; }
 ```
 
-# Wraping up
+# Wrapping up
 
 It is not strictly required for controller's code to be placed inside the view markup, you can put them in separate script files and include as any other scripts:
 ```html
