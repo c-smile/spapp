@@ -14,7 +14,11 @@
   var $currentPage = null;
   
   function show(pageName,param) {
-    var $page = null;
+    var $page = $("section#" + pageName);
+    if( $page.length == 0 ) {
+      console.warn("section with id=%s not found!");
+      return;
+    }
     var ph = pageHandlers[pageName];
     if( ph ) { 
       $page = $("section#" + pageName);
