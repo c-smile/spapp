@@ -21,7 +21,6 @@
     }
     var ph = pageHandlers[pageName];
     if( ph ) { 
-      $page = $("section#" + pageName);
       var that = $page.length > 0 ? $page[0] : null;
       var r = ph.call(that , param);
       if( typeof r == "function" ) { // it returns the function that's used for view rendering
