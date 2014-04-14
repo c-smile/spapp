@@ -55,11 +55,6 @@
     pageHandlers[pageName] = handler;
   }
   
-  app.mode = function(mode) {
-    if( mode ) $(document.body).attr("mode",mode);
-    else return $(document.body).attr("mode");
-  }
-  
   function onhashchange() 
   {
     var hash = location.hash || "#about";
