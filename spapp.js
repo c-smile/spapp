@@ -16,7 +16,7 @@
   function show(pageName,param) {
     var $page = $("section#" + pageName);
     if( $page.length == 0 ) {
-      console.warn("section with id=%s not found!");
+      console.warn("section with id=%s not found!",pageName);
       return;
     }
     var ph = pageHandlers[pageName];
