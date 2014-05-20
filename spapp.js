@@ -57,8 +57,8 @@
   
   function onhashchange() 
   {
-    var hash = location.hash || "#about";
-    
+    var hash = location.hash || "#" + $("section[default]").attr('id');
+
     var re = /#([-0-9A-Za-z]+)(\:(.+))?/;
     var match = re.exec(hash);
     hash = match[1];
