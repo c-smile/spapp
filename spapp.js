@@ -30,8 +30,11 @@
     }
     if(currentPageName) { // "close" current page view
       $(document.body).removeClass(currentPageName); // remove old page class {
-      if($currentPage) 
+      if($currentPage) {
         $currentPage.trigger("page.hidden",currentPageName);
+        if($currentPage.attr('src'))
+            $currentPage.empty();
+      }
     }
     $(document.body).addClass(currentPageName = pageName); // set new page class
     if($currentPage = $page)
