@@ -24,7 +24,7 @@
       var that = $page.length > 0 ? $page[0] : null;
       var r = ph.call(that , param);
       if( typeof r == "function" ) { // it returns the function that's used for view rendering
-        if(!($page.attr("no-ctl-cache") == ""))
+        if(!$page.is("[no-ctl-cache]"))
             pageHandlers[pageName] = r;
         r.call(that, param); // call that rendering function
       }
@@ -33,7 +33,7 @@
       $(document.body).removeClass(currentPageName); // remove old page class {
       if($currentPage) {
         $currentPage.trigger("page.hidden",currentPageName);
-        if($currentPage.attr('src') && $currentPage.attr("no-ctl-cache"))
+        if($currentPage.attr('src') && $currentPage.is("[no-ctl-cache]"))
             $currentPage.empty();
       }
     }
