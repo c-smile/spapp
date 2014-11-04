@@ -22,14 +22,14 @@ Let's consider structure of simple "contact list" web application:
     <a href="#about">About</a>
   </nav>
   
-  <section id="contact-list" src="pages/contact-list.htm"></section>
+  <section id="contact-list" src="pages/contact-list.htm" default></section>
   <section id="contact-details" src="pages/contact-details.htm"></section>
   <section id="about" src="pages/about.htm"></section>
 
 </body>
 ```
 We have `<nav>`igation section here and collection of `<section>`s - views that need to be presented when user clicks
-on one of hyperlinks in the nav bar (or anywhere else).
+on one of hyperlinks in the nav bar (or anywhere else). Also, if you want to load a section by default, simply add the `default` attribute.
 
 ## Routing 
   
