@@ -3,7 +3,7 @@ SPApp
 
 Single Page Application Micro Framework
 
-Supports views, controllers and routing in 75 lines of code!
+Supports views, controllers and routing in 60 lines of code!
 
 # Introduction
 
@@ -36,7 +36,7 @@ on one of hyperlinks in the nav bar (or anywhere else). Also, if you want to loa
 By definig `<section id="some id">` element in your markup you actually define a route. When browser is navigated to
 `{url of your app}#id-of-section` the SPApp module catches this event and shows `<section>` with that ID. 
 
-No special mechanism for declaring routes is required - simply declare `<section>` with proper ID.
+No special mechanism for declaring routes is required - simply declare `<section>`s with proper IDs.
 
 ## Views and Controllers
 
@@ -83,9 +83,9 @@ Typical structure of a view looks like this:
 As you see markup above contains two sections: 
 
  1. html markup of the view per se and
- 2. script block with `app.page("{name}",scopeInitializerAndControoler )` function.
+ 2. script block with `app.page("{name}",scopeInitializerAndController )` function.
 
-The _scopeInitializerAndControoler_ function above serves two tasks: 
+The _scopeInitializerAndController_ function above serves two tasks: 
 
  1. initilizes the view and its scope variables and 
  2. returns function (a.k.a. "controller"). That function will be called each time the view needs to be presented/rendered.
