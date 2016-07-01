@@ -61,12 +61,14 @@ Typical structure of a view looks like this:
   window.app.page("contact-details", function() // registering the controller
   {
     // initialize view variables in localscope
+    // this is "page ready" code - happens once per app life time.
     
     var $firstName = $(this).find('[name="firstName"]');
     var $lastName = $(this).find('[name="lastName"]');
     ...
     
     // presenter of the view - load data and show: 
+    // this function is "page activated" code - it gets called each time the page gets presented 
     return function(params) {
       var contactId = params; 
       contact = contacts[contactId];
