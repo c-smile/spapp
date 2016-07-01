@@ -24,7 +24,7 @@ Let's consider structure of simple "contact list" web application:
   
   <section id="contact-list" src="pages/contact-list.htm" default></section>
   <section id="contact-details" src="pages/contact-details.htm"></section>
-  <section id="about" src="pages/about.htm"></section>
+  <section id="about" src="pages/about.htm" default></section>
 
 </body>
 ```
