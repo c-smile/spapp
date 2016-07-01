@@ -50,6 +50,8 @@ Typical structure of a view looks like this:
 
   <label>First name</label> <input name="firstName">
   <label>Last name</label> <input name="lastName">
+  
+  <button class="save">Save</button> 
   ... 
 
 <script>
@@ -65,13 +67,20 @@ Typical structure of a view looks like this:
     
     var $firstName = $(this).find('[name="firstName"]');
     var $lastName = $(this).find('[name="lastName"]');
+    
+    var contactId; // current id of presented contact 
+    
+    $(this).on("click","button.save", function(
+      // save contact (contactId) using current $firstName $lastName values
+    ));
+    
     ...
     
     // presenter of the view - load data and show: 
     // this function is "page activated" code - it gets called each time the page gets presented 
     return function(params) {
-      var contactId = params; 
-      contact = contacts[contactId];
+      contactId = params; // setting current contactId 
+      var contact = contacts[contactId];
       // show values 
       $firstName.val(contact.firstName);
       $lastName.val(contact.lastName);
