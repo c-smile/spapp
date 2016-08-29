@@ -29,14 +29,16 @@ Let's consider structure of simple "contact list" web application:
 </body>
 ```
 We have `<nav>`igation section here and collection of `<section>`s - views that need to be presented when user clicks
-on one of hyperlinks in the nav bar (or anywhere else). Also, if you want to load a section by default, simply add the `default` attribute.
+on one of hyperlinks in the nav bar (or anywhere else). 
 
 ## Routing 
   
-By definig `<section id="some id">` element in your markup you actually define a route. When browser is navigated to
+By defining `<section id="some id">` element in your markup you actually define a route. When browser is navigated to
 `{url of your app}#id-of-section` the SPApp module catches this event and shows `<section>` with that ID. 
 
 No special mechanism for declaring routes is required - simply declare `<section>`s with proper IDs.
+
+If you want to load some section by default, simply add the `default` attribute to it.
 
 ## Views and Controllers
 
