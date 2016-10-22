@@ -117,12 +117,12 @@ In all cases the SPApp framework will call controller registered for the view pa
 ## Events
 When the browser transitions between views, several events are triggered at critical points:
 
-- `page.hidden: function(currentPageName)`: triggered on the current `<section>` before it is replaced by the new one.
-- `page.loadStarted: function(url)`: triggered before an ajax call is made to load `<section>` contents.
-- `page.loadSucceeded: function(jqXHR)`: triggered after the ajax call finishes successfully but before the new `<section>` is rendered.
-- `page.loadFailed: function(jqXHR,textStatus,errorThrown)`: triggered after the ajax call fails (for example, because of a non-200 response status).
-- `page.loadFinished: function(jqXHR,textStatus,errorThrown)`: always triggered after the ajax call, regardless of whether it succeeded.
-- `page.shown: function(currentPageName)`: triggered right before the new `<section>` is displayed.
+- `page.hidden: function(event,currentPageName)`: triggered on the current `<section>` before it is replaced by the new one.
+- `page.loadStarted: function(event,url)`: triggered before an ajax call is made to load `<section>` contents.
+- `page.loadSucceeded: function(event,jqXHR)`: triggered after the ajax call finishes successfully but before the new `<section>` is rendered.
+- `page.loadFailed: function(event,jqXHR,textStatus,errorThrown)`: triggered after the ajax call fails (for example, because of a non-200 response status).
+- `page.loadFinished: function(event,jqXHR,textStatus,errorThrown)`: always triggered after the ajax call, regardless of whether it succeeded.
+- `page.shown: function(event,currentPageName)`: triggered right before the new `<section>` is displayed.
 
 Note that when an ajax call is made, **3** events will be triggered:
 
@@ -137,15 +137,15 @@ Example:
 ```
 // Configure event handlers for all <section>s
 $('section')
-  .on('page.loadStarted', function(url) {
+  .on('page.loadStarted', function(event,url) {
     // Show a "loading..." modal before each ajax request.
     $('#loading-modal').show();
   })
-  .on('page.loadFailed', function(jqXHR,textStatus,errorThrown) {
+  .on('page.loadFailed', function(event,jqXHR,textStatus,errorThrown) {
     // Let the user know that something bad just happened.
     alert('Failed to load page. Check network tab in console for more information.');
   })
-  .on('page.loadFinished', function(jqXHR,textStatus,errorThrown) {
+  .on('page.loadFinished', function(event,jqXHR,textStatus,errorThrown) {
     // Hide the "loading..." modal.
     $('#loading-modal').hide();
   });
