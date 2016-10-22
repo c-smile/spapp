@@ -114,14 +114,42 @@ The application can be switched to show different views in one of these ways:
 
 In all cases the SPApp framework will call controller registered for the view passing given parameter to it.
 
-## View events
+## Events
+When the browser transitions between views, several events are triggered at critical points:
 
-While switching the view the SPAapp will trigger two events:
+- `page.hidden: function(event,currentPageName)`: triggered on the current `<section>` before it is replaced by the new one.
+- `page.loadStarted: function(event,url)`: triggered before an ajax call is made to load `<section>` contents.
+- `page.loadSucceeded: function(event,jqXHR)`: triggered after the ajax call finishes successfully but before the new `<section>` is rendered.
+- `page.loadFailed: function(event,jqXHR,textStatus,errorThrown)`: triggered after the ajax call fails (for example, because of a non-200 response status).
+- `page.loadFinished: function(event,jqXHR,textStatus,errorThrown)`: always triggered after the ajax call, regardless of whether it succeeded.
+- `page.shown: function(event,currentPageName)`: triggered right before the new `<section>` is displayed.
 
- 1. "page.hidden" with `event.target` set on `<section>` to be "closed" and
- 2. "page.shown" with `event.target` set on `<section>` to be "shown".
-  
- So by subscribing on these events any code inside or outside controllers can receive notification about application state change.
+Note that when an ajax call is made, **3** events will be triggered:
+
+1. `page.loadStarted`
+2. `page.loadSucceeded` or `page.loadFailed`, depending on whether the ajax call succeeded
+3. `page.loadFinished`
+
+To set an event handler, call `$.on()` for the `<section>`(s) that you want to modify.
+
+Example:
+
+```
+// Configure event handlers for all <section>s
+$('section')
+  .on('page.loadStarted', function(event,url) {
+    // Show a "loading..." modal before each ajax request.
+    $('#loading-modal').show();
+  })
+  .on('page.loadFailed', function(event,jqXHR,textStatus,errorThrown) {
+    // Let the user know that something bad just happened.
+    alert('Failed to load page. Check network tab in console for more information.');
+  })
+  .on('page.loadFinished', function(event,jqXHR,textStatus,errorThrown) {
+    // Hide the "loading..." modal.
+    $('#loading-modal').hide();
+  });
+```
 
 ## Styling application and view states.
 

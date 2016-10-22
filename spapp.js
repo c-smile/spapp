@@ -48,16 +48,26 @@
 
     var src = $page.attr("src");
     if( src && $page.find(">:first-child").length == 0) { // it has src and is empty
+      $page.trigger("page.loadStarted",src);
       $.get(src, "html")
-          .done(function(html){$page.html(html); show(pageName,param); })
-          .fail(function(){ alert("failed to get:" + src); });
+          .done(function(html,textStatus,jqXHR){
+            $page.html(html);
+            $page.trigger("page.loadSucceeded",jqXHR);
+            show(pageName,param);
+          })
+          .fail(function(jqXHR,textStatus,errorThrown){
+            $page.trigger("page.loadFailed",jqXHR,textStatus,errorThrown);
+          })
+          .always(function(jqXHR,textStatus,errorThrown){
+            $page.trigger("page.loadFinished",jqXHR,textStatus,errorThrown)
+          });
     } else
       show(pageName,param);
   }
 
   app.page = function(pageName, handler) {
     pageHandlers[pageName] = handler;
-  }
+  };
 
   function onhashchange()
   {
@@ -77,9 +87,3 @@
   $(onhashchange); // call it for the initialization
 
 })(jQuery,this);
-
-
-
-
-
-
