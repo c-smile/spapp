@@ -157,7 +157,7 @@ app.get = function(src,$page,pageName) {
   return $.get(src, "html"); 
 };
 ```
-so it just delegates page downloading to jQuery and returns a promise obtained.  
+so it just delegates page downloading to jQuery and returns promise obtained from `$.get()`.  
 
 In your application you can override that default loader to have something like this:
 
