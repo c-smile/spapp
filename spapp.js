@@ -48,20 +48,21 @@
 
     var src = $page.attr("src");
     if( src && $page.find(">:first-child").length == 0) { // it has src and is empty
-      $.get(src, "html")
+      app.get(src, $page, pageName)
           .done(function(html){$page.html(html); show(pageName,param); })
-          .fail(function(){ alert("failed to get:" + src); });
+          .fail(function(){ console.warn("failed to get %s page!",pageName);});
     } else
       show(pageName,param);
   }
 
-  app.page = function(pageName, handler) {
-    pageHandlers[pageName] = handler;
-  }
+  // Registration of page's handler function - scope initializer and controller
+  app.page = function(pageName, handler) { pageHandlers[pageName] = handler; };
+  // Function to get page's html, shall return jQuery's promise. Can be overriden.
+  app.get = function(src,$page,pageName) { return $.get(src, "html"); };
 
   function onhashchange()
   {
-    var hash = location.hash || "#" + $("section[default]").attr('id');
+    var hash = location.hash || ("#" + $("section[default]").attr('id'));
 
     var re = /#([-0-9A-Za-z]+)(\:(.+))?/;
     var match = re.exec(hash);
@@ -73,8 +74,10 @@
   $(window).on("hashchange", onhashchange );
 
   window.app = app;
-
-  $(onhashchange); // call it for the initialization
+    
+  // Call onhashchange manually for the initialization.
+  // setTimeout is used to postpone initialization so application can configure window.app.get = function(src,$page,pageName); for example
+  window.setTimeout( function() { $(onhashchange); } );
 
 })(jQuery,this);
 

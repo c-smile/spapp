@@ -145,6 +145,31 @@ body.view-b > nav > a[href="#view-b"],
 body.view-c > nav > a[href="#view-c"] { background:white; color:black; }
 ```
 
+## app.get - the page getter function
+
+
+```javascript
+app.get = function(src,$page,pageName) { 
+  // src - string, url of the page to load
+  // $page - jq wrapper, page element
+  // pageName - string, name of the page to load
+  return $.get(src, "html"); 
+};
+```
+
+In your application you can override that default loader to have something like this:
+
+```javascript
+app.get = function(src,$page,pageName) { 
+  var rq = $.get(src, "html"); 
+      // generate load events 
+      rq.done( function(html,textStatus,jqXHR) { $page.trigger("page.loadsuccess",jqXHR); } ) 
+        .fail( function(jqXHR,textStatus,errorThrown) { $page.trigger("page.loadfailure",jqXHR,textStatus,errorThrown); } );
+  // NOTE: your custom page downloader shall return jq promise
+  return rq;
+};
+```
+
 # Wrapping up
 
 It is not strictly required for controller's code to be placed inside the view markup, you can put them in separate script files and include as any other scripts:
