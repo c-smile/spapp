@@ -55,8 +55,8 @@
             $page.trigger("page.loadSucceeded",jqXHR);
             show(pageName,param);
           })
-          .fail(function(xhr,textStatus,errorThrown){
-            $page.trigger("page.loadFailed",xhr,textStatus,errorThrown);
+          .fail(function(jqXHR,textStatus,errorThrown){
+            $page.trigger("page.loadFailed",jqXHR,textStatus,errorThrown);
           })
           .always(function(jqXHR,textStatus,errorThrown){
             $page.trigger("page.loadFinished",jqXHR,textStatus,errorThrown)
