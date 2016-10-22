@@ -147,6 +147,7 @@ body.view-c > nav > a[href="#view-c"] { background:white; color:black; }
 
 ## app.get - the page getter function
 
+When SPAapp needs to download page's html it calls `app.get(url, $page, pageName)` function. Default implementation of the `app.get` is as follows:
 
 ```javascript
 app.get = function(src,$page,pageName) { 
@@ -156,6 +157,7 @@ app.get = function(src,$page,pageName) {
   return $.get(src, "html"); 
 };
 ```
+so it just delegates page downloading to jQuery and returns a promise obtained.  
 
 In your application you can override that default loader to have something like this:
 
