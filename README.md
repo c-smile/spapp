@@ -201,7 +201,7 @@ In the same way markup for views can be provided inline without use of external 
   </section>
 ```
 
-#Live Demo
+# Live Demo
 
  Check this [SPApp in action demo](http://terrainformatica.com/widgets.js/spapp/index.htm). I've created it in explicitly simple and minimalistic fashion in order to highlight just SPAapp. I have projects where it works in Twitter Bootstrap environment for example.
 
