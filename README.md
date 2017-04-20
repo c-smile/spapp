@@ -135,6 +135,25 @@ body.view-a > section#view-a,
 body.view-b > section#view-b,
 body.view-c > section#view-c  { display:block; }
 ```
+
+If you find this too much boilerplate code you can auto-generate CSS adding `spapp.style.js` javascript to your page:
+```html
+<script type="text/javascript" src="spapp.js"></script>
+<script type="text/javascript" src="spapp.style.js"></script>
+<body>
+
+  <nav>
+    <a href="#contact-list">Contacts</a>
+    <a href="#about">About</a>
+  </nav>
+  
+  <section id="contact-list" src="pages/contact-list.htm" default></section>
+  <section id="contact-details" src="pages/contact-details.htm"></section>
+  <section id="about" src="pages/about.htm" default></section>
+
+</body>
+```
+
 Note that switching the view into different states may require not only to hide/show some sections but also 
 to style some other indicators like nav-bar items highlighting:
 
