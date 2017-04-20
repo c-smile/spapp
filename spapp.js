@@ -14,6 +14,7 @@
   var $currentPage = null;
 
   function show(pageName,param) {
+    debugger;
     var $page = $("section#" + pageName);
     if( $page.length == 0 ) {
       console.warn("section with id=%s not found!",pageName);
@@ -80,7 +81,6 @@
   window.setTimeout( function() { $(onhashchange); } );
 
 })(jQuery,this);
-
 
 
 
