@@ -203,6 +203,6 @@ In the same way markup for views can be provided inline without use of external 
 
 # Live Demo
 
- Check this [SPApp in action demo](http://terrainformatica.com/widgets.js/spapp/index.htm). I've created it in explicitly simple and minimalistic fashion in order to highlight just SPAapp. I have projects where it works in Twitter Bootstrap environment for example.
+ Check this [SPApp in action demo](https://rawgit.com/c-smile/spapp/master/demo/index.htm). I've created it in explicitly simple and minimalistic fashion in order to highlight just SPAapp. I have projects where it works in Twitter Bootstrap environment for example.
 
 And check [Team ToolBox](https://lduboeuf.github.io/team-tool-box) application where SpApp is used.
