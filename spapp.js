@@ -80,9 +80,3 @@
   window.setTimeout( function() { $(onhashchange); } );
 
 })(jQuery,this);
-
-
-
-
-
-
