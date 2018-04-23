@@ -90,6 +90,16 @@ You will get this markup populated in the list:
           if (t.indexOf("{{") >= 0)
             n.textContent = replace(t, data);
         }
+        else if (n.nodeType === 8) // comment
+        {
+          var comment = $.trim(n.nodeValue);
+          if (comment.indexOf("spapp:") == 0)
+          {
+            var spappCotent = comment.substr(3);
+            var hiContent = replace(spappCotent, data);
+            $(n).after(hiContent);
+          }
+        }
       }
     }
 
